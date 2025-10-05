@@ -1,0 +1,20 @@
+<!-- <div *ngIf="errorMessage" class="response error">
+    <h3>Error</h3>
+    <p>{{ errorMessage }}</p>
+</div> -->
+
+<div class="container" style="align-items: center; width: 50%; margin-top: 1.5rem;" >
+    <div *ngIf="bookingResponse" class="response success">
+        <h3>Tickets Booked Successfully!</h3>
+        <div class="booking-details">
+            <h4>Booking Details</h4>
+            <p><strong>Order ID:</strong> {{ bookingResponse.bookingId }}</p>
+            <p><strong>Movie Name:</strong> {{ bookingResponse.movieName }}</p>
+            <p><strong>No of Seats:</strong> {{ bookingResponse.noOfTickets }}</p>
+            <p><strong>Auditorium:</strong> {{ bookingResponse.auditoriumName }}</p>
+            <p><strong>Seats:</strong> {{ bookingResponse.seats }}</p>
+            <p><strong>Status:</strong> {{ bookingResponse.status }}</p>
+            <p class="total-price"><strong>Total Price: ${{ bookingResponse.totalPrice | number:'1.2-2' }}</strong></p>
+        </div>
+    </div>
+</div>

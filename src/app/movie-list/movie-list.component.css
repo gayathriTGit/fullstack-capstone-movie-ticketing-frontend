@@ -1,0 +1,22 @@
+ .card-strip {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+.card-strip > .card {
+    scroll-snap-align: start;
+    min-width: 18rem;            /* set the visible card width */
+    flex: 0 0 auto;              /* prevent cards from shrinking */
+}
+/* Optional: hide scrollbar on WebKit without breaking accessibility */
+.card-strip::-webkit-scrollbar { height: 8px; }
+.card-strip::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 4px; }
+
+.card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* show max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 3rem;        /* reserve space for 2 lines (~1.5rem each) */
+  line-height: 1.5rem;     /* consistent spacing */
+}

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-start" style="margin-top: 1.5rem;">
+        <div class="d-flex flex-column flex-grow-1" style="flex: 2;">
+            <img src="{{apiUrl}}{{movie.image}}" class="img-fluid rounded shadow-sm" alt="{{ movie.name }}"
+                style="width: 75%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="vr"></div>
+        <div class="flex-grow-1" style="flex: 1; margin-left: 3.5rem; ">
+            <h5 class="fw-bold">{{ movie.name }}</h5>
+            <p class="text-body-secondary">{{ movie.rating }} | {{ movie.length }}</p>
+            <p class="text-body-secondary">{{ movie.releaseDate }}</p>
+            <p class="text-muted">{{ movie.description }}</p>
+            <div class="d-flex gap-3 mb-3" >
+                <!--<a class="btn btn-outline-primary" *ngFor="let showTime of showTimes" 
+                    href="/moviebookticket?moviename={{showTime.movieName}}&time={{showTime.time}}&auditoriumname={{showTime.auditoriumName}}&seats={{showTime.seats}}">-->
+                <a class="btn btn-outline-primary" *ngFor="let showTime of showTimes" 
+                    href="/moviebookticket?showtimeid={{showTime.id}}">
+                    {{showTime.time}} at {{showTime.auditoriumName}}
+                </a>
+            </div>   
+            <div class="d-flex gap-3 mb-3">
+                <a  href="/movies">Back</a>
+            </div>
+        </div>
+    </div>

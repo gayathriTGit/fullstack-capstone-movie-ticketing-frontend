@@ -1,0 +1,14 @@
+.list-group-horizontal .list-group-item::before {
+  content: "\2022"; /* Unicode for a bullet point */
+  margin-right: 0.5em; /* Adjust spacing as needed */
+}
+
+.custom-no-border {
+    border: none !important; /* Use !important to override Bootstrap's default border */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 300px;   /* fixed height */
+  object-fit: cover; /* crops image nicely */
+}
