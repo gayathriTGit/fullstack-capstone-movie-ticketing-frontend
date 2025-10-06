@@ -13,7 +13,9 @@ RUN npm run build
 # Stage 2: Serve
 FROM nginx:1.27-alpine
 
-ARG APP_NAME=nms-cinemas-booking
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+ARG APP_NAME=NmsCinemasBooking
 COPY --from=builder /app/dist/${APP_NAME} /usr/share/nginx/html
 
 EXPOSE 80
