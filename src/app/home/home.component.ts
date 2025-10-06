@@ -2,7 +2,7 @@ import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { MovieListComponent } from "../movie-list/movie-list.component";
 import { MoviesService } from '../services/movies.service';
 import { CommonModule , isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -11,8 +11,10 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
 
+  private router = inject(Router);
   loginSuccess: boolean = false;
   platformId: Object = inject(PLATFORM_ID);
 
@@ -27,7 +29,12 @@ export class HomeComponent {
     else {
       this.loginSuccess = this.service.loginSuccessful;
     }   
-    console.log("home " + this.loginSuccess);
+
+    if (!this.loginSuccess) {
+      this.router.navigate(['/login'], { queryParams: { redirectUrl: '/home' } });
+    }
+
+    console.log("home " + this.loginSuccess);    console.log("home " + this.loginSuccess);
   }
 
 }

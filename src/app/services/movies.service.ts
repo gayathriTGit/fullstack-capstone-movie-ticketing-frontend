@@ -39,6 +39,7 @@ export class MoviesService {
 
   async addMovie(movie: Movie): Promise<Movie> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    console.log("Add movie" + movie);
     return await firstValueFrom(
       this.http.post<Movie>(this.moviesApiUrl, movie, { headers })
     );
