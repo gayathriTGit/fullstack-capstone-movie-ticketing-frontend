@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Auditorium, BookingRequest, BookingResponse, Movie, MovieShowTime } from '../models/movies.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,12 @@ import { Auditorium, BookingRequest, BookingResponse, Movie, MovieShowTime } fro
 
 export class MoviesService {
 
-  public moviesApiUrl = 'http://localhost:9000/api/movies';
-  public showTimesApiUrl = 'http://localhost:9000/api/movieshowtimes';
-  public auditoriumsApiUrl = 'http://localhost:9000/api/auditoriums';
-  public bookingApiUrl = 'http://localhost:9000/api/bookings';
+  private base = environment.apiBaseUrl;
+
+  public moviesApiUrl = `${this.base}/api/movies`; //'http://localhost:9000/api/movies';
+  public showTimesApiUrl = `${this.base}/api/movieshowtimes`; // 'http://localhost:9000/api/movieshowtimes';
+  public auditoriumsApiUrl = `${this.base}/api/auditoriums`; // 'http://localhost:9000/api/auditoriums';
+  public bookingApiUrl = `${this.base}/api/bookings`; //'http://localhost:9000/api/bookings';
   public loginSuccessful: boolean = false;
   public loginUserName: string = '';
   public loginPassword: string = '';
