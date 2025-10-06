@@ -8,7 +8,6 @@ RUN npm ci
 
 # Copy source and build
 COPY . .
-RUN npm run build
 RUN npm run build -- --configuration=production
 
 # Stage 2: Serve
