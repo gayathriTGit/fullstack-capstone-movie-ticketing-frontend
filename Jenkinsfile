@@ -12,6 +12,7 @@ pipeline {
         }
       
         stage('Build') {
+	    agent { label 'docker' }   // runs on the docker host	
             steps {
                 sh '''
                 docker version
@@ -22,6 +23,7 @@ pipeline {
         }
     
         stage('Run') {
+            agent { label 'docker' }   // runs on the docker host
             steps {
                 sh '''                
                 docker rm -f ticket-booking-frontend-container || true
